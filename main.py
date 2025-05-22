@@ -1,7 +1,9 @@
 from stats import number_of_words, get_book_text, number_of_chars, sort_chars
-
 def main():
-    book_path = "/home/ubuntu/workspace/github/bookbot/books/frankenstein.txt"
+    from sys import argv
+    main, path = argv
+
+    book_path = path
     book = get_book_text(book_path)
     num_words = number_of_words(book)
     chars = number_of_chars(book)
@@ -21,4 +23,9 @@ def main():
             continue
         print(f"{w['char']}: {w['num']}")
     print("============= END ===============")
-main()
+
+try:
+      main()  
+except ValueError:
+        print("Usage: python3 main.py <path_to_book>")
+        SystemExit(1)
