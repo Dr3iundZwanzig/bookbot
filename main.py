@@ -1,4 +1,6 @@
 from stats import number_of_words, get_book_text, number_of_chars, sort_chars
+import sys
+
 def main():
     from sys import argv
     main, path = argv
@@ -28,4 +30,4 @@ try:
       main()  
 except ValueError:
         print("Usage: python3 main.py <path_to_book>")
-        SystemExit(1)
+        sys.exit(1)
